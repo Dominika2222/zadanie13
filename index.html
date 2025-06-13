@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artykuły • SupaBlog</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 24 24%22 stroke=%22black%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222%22 d=%22M12 4v16m8-8H4%22/></svg>"
+    />
+  </head>
+  <body class="min-h-full bg-gray-100 text-gray-900">
+    <header class="bg-white shadow sticky top-0 z-50">
+      <nav class="mx-auto max-w-5xl flex items-center justify-between p-4">
+        <h1 class="text-xl font-semibold tracking-tight">SupaBlog</h1>
+        <div id="nav-actions" class="space-x-2"></div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-6 space-y-6" id="articles"></main>
+
+    <dialog
+      id="article-modal"
+      class="rounded-2xl backdrop:bg-black/40 w-full max-w-lg p-0"
+    >
+      <form
+        id="article-form"
+        method="dialog"
+        class="bg-white rounded-2xl p-6 space-y-4"
+      >
+        <h2 id="article-modal-title" class="text-lg font-semibold"></h2>
+
+        <label class="block">
+          <span class="sr-only">Tytuł</span>
+          <input
+            required
+            name="title"
+            placeholder="Tytuł"
+            class="w-full p-2 border rounded-md"
+          />
+        </label>
+
+        <label class="block">
+          <span class="sr-only">Podtytuł</span>
+          <input
+            name="subtitle"
+            placeholder="Podtytuł"
+            class="w-full p-2 border rounded-md"
+          />
+        </label>
+
+        <label class="block">
+          <span class="sr-only">Treść</span>
+          <textarea
+            required
+            name="content"
+            rows="6"
+            placeholder="Treść"
+            class="w-full p-2 border rounded-md"
+          ></textarea>
+        </label>
+
+        <label class="block">
+          <span class="sr-only">Autor</span>
+          <input
+            name="author"
+            placeholder="Autor"
+            class="w-full p-2 border rounded-md"
+          />
+        </label>
+
+        <div class="flex justify-end space-x-2 pt-2">
+          <button
+            type="button"
+            data-close
+            class="px-4 py-2 rounded-md hover:bg-gray-100 transition"
+          >
+            Anuluj
+          </button>
+          <button
+            type="submit"
+            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+          >
+            Zapisz
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
